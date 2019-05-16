@@ -10,16 +10,6 @@ import {Provider} from 'react-redux'
 import CounterApp from "./CounterApp";
 
 const initialState = {
-  // counter: 0,
-  // items: [
-  //   {
-  //     'id': 'item1',
-  //     'cost': 2,
-  //     'description': 'Pen - Used 2',
-  //     'imgPath': require('./pen.jpg'),
-  //   }
-  // ],
-  // showShippingModal: false,
   currentItem: {
     total: 0,
     shoppingOptions: {
@@ -30,22 +20,23 @@ const initialState = {
     }
   }
 };
-// const reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case 'INCREASE_COUNTER':
-//       return {counter: state.counter + 1};
-//     case 'DECREASE_COUNTER':
-//       return {counter: state.counter - 1};
-//   }
-//   return state
-// };
 
 const items = (state = [{
   'id': 'item1',
-  'cost': 2,
+  'cost': 1,
   'description': 'Pen - Used 2',
   'imgPath': require('./pen.jpg'),
-}], action) => {
+}, {
+  'id': 'item2',
+  'cost': 1,
+  'description': 'Pen - Used',
+  'imgPath': require('./pen.jpg'),
+}, {
+  'id': 'item3',
+  'cost': 5,
+  'description': 'Mouse - Used',
+  'imgPath': require('./mouse.jpg'),
+},], action) => {
   return state;
 };
 
@@ -89,16 +80,7 @@ class App extends Component {
           <View style={{height: 20, backgroundColor: "red"}}>
           </View>
           {/*<StreamVideo/>*/}
-          {/*<ShippingOptionSection/>*/}
-          {/*<ShippingInfo/>*/}
           <ShoppingPanel/>
-
-          <CounterApp/>
-
-
-          {/*Test*/}
-          {/*<ShippingOption/>*/}
-          {/*<ModalExample></ModalExample>*/}
 
         </View>
       </Provider>

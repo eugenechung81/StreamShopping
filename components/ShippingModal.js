@@ -3,15 +3,7 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import ShippingInfo from "./shipping/ShippingInfo";
 import {connect} from "react-redux";
 
-class ShoppingModal extends Component {
-  // state = {
-  //   modalVisible: false,
-  // }
-
-  // toggleModal(visible) {
-  //   this.setState({modalVisible: visible});
-  // }
-
+class ShippingModal extends Component {
   render() {
     console.log(this.props);
     return (
@@ -27,19 +19,15 @@ class ShoppingModal extends Component {
 
           <View
             style={{
-              // flex: 1,
               marginTop: 200,
               alignItems: 'center',
               backgroundColor: '#ffffff',
               padding: 0,
-              // padding: 100
             }}
           >
-            {/*<Text style={styles.text}>Modal is open!</Text>*/}
             <ShippingInfo/>
             <TouchableHighlight
               onPress={() => {
-                // this.toggleModal(!this.state.modalVisible)
                 this.props.closeModal();
               }}
             >
@@ -71,4 +59,4 @@ export default connect((state) => {
     closeModal: () => dispatch({type: 'CLOSE_SHIPPING'}),
   }
 
-})(ShoppingModal);
+})(ShippingModal);

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Dimensions, Image, ScrollView, Text, View} from "react-native";
 import ShoppingItem from "./ShoppingItem";
 import {connect} from "react-redux";
-import ShoppingModal from "./ShoppingModal";
+import ShippingModal from "./ShippingModal";
 
 class ShoppingPanel extends Component {
 
@@ -23,13 +23,11 @@ class ShoppingPanel extends Component {
           top: 25,
           height: 495,
           width: 100,
-          // backgroundColor: "blue",
           position: "absolute",
           right: 10,
         }}
       >
-        {/*<ScrollViewExample/>*/}
-        <ShoppingModal ref="shoppingModal"/>
+        <ShippingModal/>
         <ScrollView
           style={{
             height: 400,
@@ -43,32 +41,9 @@ class ShoppingPanel extends Component {
                 imgPath={i.imgPath}
                 description={i.description}
                 cost={i.cost}
-                onOrder={() => {
-                  this.refs["shoppingModal"].toggleModal(true);
-                }}
               />)
           })}
-          <ShoppingItem
-            imgPath={require('./../pen.jpg')}
-            description={'Pen - Used'}
-            cost={1}
-            onOrder={()=> {
-              this.refs["shoppingModal"].toggleModal(true);
-            }}
-          />
-          <ShoppingItem
-            imgPath={require('./../mouse.jpg')}
-            description={'Mouse - Used'}
-            cost={5}
-            onOrder={() => {
-              this.refs.shoppingModal.toggleModal(true);
-            }}
-          />
-          <ShoppingItem
-            imgPath={require('./../mouse.jpg')}
-            description={'Mouse - Used'}
-            cost={5}
-          />
+
         </ScrollView>
       </View>
     )

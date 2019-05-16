@@ -125,42 +125,6 @@ class ShippingInfo extends Component {
       >
         <ShippingOptionSection title="Ground" description="Standard, get it within 7-9 days."/>
         <ShippingOptionSection title="Priority" description="Get it faster, get it within 2-4 days."/>
-        {/*<View*/}
-        {/*  style={{*/}
-        {/*    backgroundColor: '#5f9ea0',*/}
-        {/*    flex: 1,*/}
-        {/*    marginTop: 20,*/}
-        {/*    width: screenWidth,*/}
-        {/*    // height: "100%",*/}
-        {/*    justifyContent: 'center',*/}
-        {/*    alignItems: 'center',*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <Text>Screen 1</Text>*/}
-        {/*  <Text>{this.state.data.body}</Text>*/}
-        {/*  <Button*/}
-        {/*    title="Red button!"*/}
-        {/*    color="red"*/}
-        {/*  />*/}
-        {/*</View>*/}
-        {/*<View*/}
-        {/*  style={{*/}
-        {/*    backgroundColor: '#663399',*/}
-        {/*    flex: 1,*/}
-        {/*    marginTop: 20,*/}
-        {/*    width: screenWidth,*/}
-        {/*    // height: 100,*/}
-        {/*    justifyContent: 'center',*/}
-        {/*    alignItems: 'center',*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <Text>Screen 2</Text>*/}
-        {/*  <Button*/}
-        {/*    title="Red button!"*/}
-        {/*    color="red"*/}
-        {/*  />*/}
-
-        {/*</View>*/}
       </ScrollView>
     )
   }

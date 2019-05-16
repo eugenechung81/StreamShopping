@@ -4,11 +4,12 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import store from "./store";
 import ShippingInfo from "./components/shipping/ShippingInfo";
+import ShoppingPanel from "./components/ShoppingPanel";
 
 
-// store.subscribe( ()=> {
-//   console.log("store changed", store.getState());
-// });
+store.subscribe( ()=> {
+  console.log("store changed", store.getState());
+});
 
 
 class App extends Component {
@@ -24,9 +25,9 @@ class App extends Component {
           <View style={{height: 20, backgroundColor: "red"}}>
           </View>
           {/*<StreamVideo/>*/}
-          {/*<ShoppingPanel/>*/}
+          <ShoppingPanel/>
 
-          <ShippingInfo/>
+          {/*<ShippingInfo/>*/}
 
           {/*<ShippingInfo/>*/}
         </View>

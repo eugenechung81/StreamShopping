@@ -41,6 +41,7 @@ class ShoppingPanel extends Component {
                 imgPath={i.imgPath}
                 description={i.description}
                 cost={i.cost}
+                weight={i.weight}
               />)
           })}
 

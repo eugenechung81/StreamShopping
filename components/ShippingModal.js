@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import {Modal, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import ShippingInfo from "./shipping/ShippingInfo";
 import {connect} from "react-redux";
+import {resetShipping} from "../actions/shippingActions";
 
 class ShippingModal extends Component {
   render() {
-    console.log(this.props);
     return (
       <View>
         <Modal
@@ -56,7 +56,10 @@ export default connect((state) => {
   }
 }, (dispatch) => {
   return {
-    closeModal: () => dispatch({type: 'CLOSE_SHIPPING'}),
+    closeModal: () => {
+      dispatch({type: 'CLOSE_SHIPPING'});
+      dispatch(resetShipping());
+    },
   }
 
 })(ShippingModal);

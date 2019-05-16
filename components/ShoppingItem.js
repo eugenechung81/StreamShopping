@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Image, Text, View} from "react-native";
 import {connect} from "react-redux";
+import {getRates} from "../actions/shippingActions";
 
 class ShoppingItem extends Component {
 
@@ -43,6 +44,7 @@ class ShoppingItem extends Component {
           <Button
             onPress={() => {
               // this.props.onOrder();
+              this.props.dispatch(getRates(this.props.weight));
               this.props.dispatch({type: 'OPEN_SHIPPING'});
             }}
             style={{}}

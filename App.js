@@ -80,8 +80,9 @@ class App extends Component {
           <View style={{height: 20, backgroundColor: "red"}}>
           </View>
           {/*<StreamVideo/>*/}
-          <ShoppingPanel/>
+          {/*<ShoppingPanel/>*/}
 
+          <ShippingInfo/>
         </View>
       </Provider>
     );

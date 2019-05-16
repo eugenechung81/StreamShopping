@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Image, Text, View} from "react-native";
+import {connect} from "react-redux";
 
-
-export default class ShoppingItem extends Component {
+class ShoppingItem extends Component {
 
   constructor(props) {
     super(props);
@@ -42,7 +42,8 @@ export default class ShoppingItem extends Component {
           {/*<ModalExample/>*/}
           <Button
             onPress={() => {
-              this.props.onOrder();
+              // this.props.onOrder();
+              this.props.dispatch({type: 'OPEN_SHIPPING'});
             }}
             style={{}}
             title="Order"
@@ -83,3 +84,5 @@ export default class ShoppingItem extends Component {
     )
   }
 }
+
+export default connect() (ShoppingItem);

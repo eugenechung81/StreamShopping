@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Button, Dimensions, Image, ScrollView, Text, View} from "react-native";
 import ShoppingItem from "./ShoppingItem";
-import Modal from "./Modal";
+import {connect} from "react-redux";
+import ShoppingModal from "./ShoppingModal";
 
-
-export default class extends Component {
+class ShoppingPanel extends Component {
 
   constructor(props) {
     super(props);
@@ -14,6 +14,7 @@ export default class extends Component {
   componentDidMount() {
 
   }
+
 
   render() {
     return (
@@ -28,13 +29,25 @@ export default class extends Component {
         }}
       >
         {/*<ScrollViewExample/>*/}
-        <Modal ref="shoppingModal"/>
+        <ShoppingModal ref="shoppingModal"/>
         <ScrollView
           style={{
             height: 400,
           }}
           // pagingEnabled={true}
         >
+          {this.props.items.map(i => {
+            return (
+              <ShoppingItem
+                key={i.id}
+                imgPath={i.imgPath}
+                description={i.description}
+                cost={i.cost}
+                onOrder={() => {
+                  this.refs["shoppingModal"].toggleModal(true);
+                }}
+              />)
+          })}
           <ShoppingItem
             imgPath={require('./../pen.jpg')}
             description={'Pen - Used'}
@@ -61,3 +74,9 @@ export default class extends Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    items: state.items,
+  }
+}, null)(ShoppingPanel);

@@ -1,23 +1,25 @@
 import React, {Component} from "react";
 import {Modal, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import ShippingInfo from "./shipping/ShippingInfo";
+import {connect} from "react-redux";
 
-export default class  extends Component {
-  state = {
-    modalVisible: false,
-  }
+class ShoppingModal extends Component {
+  // state = {
+  //   modalVisible: false,
+  // }
 
-  toggleModal(visible) {
-    this.setState({modalVisible: visible});
-  }
+  // toggleModal(visible) {
+  //   this.setState({modalVisible: visible});
+  // }
 
   render() {
+    console.log(this.props);
     return (
       <View>
         <Modal
           animationType={"slide"}
           transparent={true}
-          visible={this.state.modalVisible}
+          visible={this.props.modalVisible}
           onRequestClose={() => {
             console.log("Modal has been closed.")
           }}
@@ -37,7 +39,8 @@ export default class  extends Component {
             <ShippingInfo/>
             <TouchableHighlight
               onPress={() => {
-                this.toggleModal(!this.state.modalVisible)
+                // this.toggleModal(!this.state.modalVisible)
+                this.props.closeModal();
               }}
             >
               <Text style={{}}>Close Modal</Text>
@@ -58,3 +61,14 @@ export default class  extends Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    modalVisible: state.settings.showShippingModal,
+  }
+}, (dispatch) => {
+  return {
+    closeModal: () => dispatch({type: 'CLOSE_SHIPPING'}),
+  }
+
+})(ShoppingModal);

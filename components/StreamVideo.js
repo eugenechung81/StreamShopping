@@ -23,7 +23,7 @@ export default class extends Component {
           borderColor: "gray",
           borderWidth: 1,
         }}
-        source={require('./../stream.jpg')}
+        source={require('../img/stream.jpg')}
       />
 
     )

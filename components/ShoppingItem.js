@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Image, Text, View} from "react-native";
 
-export default class extends Component {
+
+export default class ShoppingItem extends Component {
 
   constructor(props) {
     super(props);
@@ -38,14 +39,15 @@ export default class extends Component {
             left: 20,
           }}
         >
+          {/*<ModalExample/>*/}
           <Button
-            style={{
-              // backgroundColor: 'rgba(52, 52, 52, 0.2)'
+            onPress={() => {
+              this.props.onOrder();
             }}
+            style={{}}
             title="Order"
             color="red"
           />
-          {/*<Text>Order</Text>*/}
         </View>
 
         <View

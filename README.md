@@ -1,6 +1,7 @@
-To start simulator:
-(make sure to start AVD - click on "play" to start emulator)
+# Development Environment
 
-react-native run-android
+- Start Android Studio
+- Start AVD Emulator
+- Start PyCharm
+- Run on emulator `react-native run-android` on commandline
 
-(loads on emulator)

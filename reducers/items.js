@@ -19,6 +19,13 @@ export const items = (state = [{
   'imgPath': require('./../img/mouse.jpg'),
   'weight': 24,
   'status': 'order',
-},], action) => {
+},{
+  'id': 'item4',
+  'cost': 5,
+  'description': 'Mouse - Used',
+  'imgPath': require('./../img/mouse.jpg'),
+  'weight': 24,
+  'status': 'order',
+}], action) => {
   return state;
 };

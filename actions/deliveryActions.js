@@ -6,6 +6,6 @@ export function closeDelivery() {
 
 export function openDelivery() {
   return {
-    type: 'OPEN_DELIVERY'
+    type: 'OPEN_DELIVERY',
   }
 }

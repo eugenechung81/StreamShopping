@@ -90,3 +90,21 @@ export function resetShipping() {
     });
   }
 }
+
+export function closeShipping() {
+  return {
+    type: 'CLOSE_SHIPPING'
+  }
+}
+
+export function openShipping(cost) {
+  return function (dispatch) {
+    dispatch({
+      'type': 'UPDATE_ORDER_TOTAL',
+      'total': cost,
+    });
+    dispatch({
+      type: 'OPEN_SHIPPING'
+    });
+  };
+}

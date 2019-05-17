@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Image, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {getRates} from "../actions/shippingActions";
+import {getRates, openShipping} from "../actions/shippingActions";
 import {openDelivery} from "../actions/deliveryActions";
 
 class ShoppingItem extends Component {
@@ -44,8 +44,6 @@ class ShoppingItem extends Component {
           >
             <Button
               onPress={() => {
-                // this.props.dispatch(getRates(this.props.weight));
-                // this.props.dispatch({type: 'OPEN_SHIPPING'});
                 this.props.dispatch(openDelivery());
               }}
               style={{}}
@@ -62,7 +60,7 @@ class ShoppingItem extends Component {
             <Button
               onPress={() => {
                 this.props.dispatch(getRates(this.props.weight));
-                this.props.dispatch({type: 'OPEN_SHIPPING'});
+                this.props.dispatch(openShipping(this.props.cost));
               }}
               style={{}}
               title="Order"

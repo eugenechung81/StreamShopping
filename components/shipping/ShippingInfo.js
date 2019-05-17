@@ -78,6 +78,7 @@ class ShippingInfo extends Component {
         style={{
           //height: 200,
         }}
+        showsHorizontalScrollIndicator={false}
         horizontal={true}
         pagingEnabled={true}
       >

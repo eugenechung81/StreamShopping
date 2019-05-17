@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Image, Text, View} from "react-native";
 import {connect} from "react-redux";
 import {getRates} from "../actions/shippingActions";
+import {openDelivery} from "../actions/deliveryActions";
 
 class ShoppingItem extends Component {
 
@@ -33,25 +34,41 @@ class ShoppingItem extends Component {
           source={this.props.imgPath}
         />
 
-        <View
-          style={{
-            position: "absolute",
-            top: 50,
-            left: 20,
-          }}
-        >
-          {/*<ModalExample/>*/}
-          <Button
-            onPress={() => {
-              // this.props.onOrder();
-              this.props.dispatch(getRates(this.props.weight));
-              this.props.dispatch({type: 'OPEN_SHIPPING'});
+        {this.props.status == "in_transit" ?
+          <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 5,
             }}
-            style={{}}
-            title="Order"
-            color="red"
-          />
-        </View>
+          >
+            <Button
+              onPress={() => {
+                // this.props.dispatch(getRates(this.props.weight));
+                // this.props.dispatch({type: 'OPEN_SHIPPING'});
+                this.props.dispatch(openDelivery());
+              }}
+              style={{}}
+              title="In Transit"
+              color="gray"
+            />
+          </View> : <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 20,
+            }}
+          >
+            <Button
+              onPress={() => {
+                this.props.dispatch(getRates(this.props.weight));
+                this.props.dispatch({type: 'OPEN_SHIPPING'});
+              }}
+              style={{}}
+              title="Order"
+              color="red"
+            />
+          </View>}
 
         <View
           style={{

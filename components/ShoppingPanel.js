@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {Button, Dimensions, Image, ScrollView, Text, View} from "react-native";
 import ShoppingItem from "./ShoppingItem";
 import {connect} from "react-redux";
-import ShippingModal from "./ShippingModal";
+import ShippingModal from "./shipping/ShippingModal";
+import DeliveryModal from "./delivery/DeliveryModal";
 
 class ShoppingPanel extends Component {
 
@@ -28,6 +29,7 @@ class ShoppingPanel extends Component {
         }}
       >
         <ShippingModal/>
+        <DeliveryModal/>
         <ScrollView
           style={{
             height: 400,
@@ -42,6 +44,7 @@ class ShoppingPanel extends Component {
                 description={i.description}
                 cost={i.cost}
                 weight={i.weight}
+                status={i.status}
               />)
           })}
 

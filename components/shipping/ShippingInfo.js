@@ -38,10 +38,11 @@ class ShippingOptionSection extends Component {
     return (
       <View
         style={{
-          borderColor: "gray",
-          borderWidth: 1,
+          backgroundColor: this.props.color || "white",
+          // borderColor: "gray",
+          // borderWidth: 1,
           width: screenWidth,
-          height: 400,
+          height: 300,
           alignItems: 'center',
         }}
       >
@@ -61,50 +62,15 @@ class ShippingOptionSection extends Component {
             justifyContent: "space-around",
           }}
         >
-          {/*<View*/}
-          {/*  style={{*/}
-          {/*    // height: 100,*/}
-          {/*    // width: 50,*/}
-          {/*    alignItems: "center",*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <Image*/}
-          {/*    style={{*/}
-          {/*      height: 50,*/}
-          {/*      width: 50,*/}
-          {/*    }}*/}
-          {/*    source={require("../../img/usps.png")}*/}
-          {/*  >*/}
-          {/*  </Image>*/}
-          {/*  <Text>Package</Text>*/}
-          {/*  <Text>$9.50</Text>*/}
-          {/*  <Text>7 days</Text>*/}
-          {/*</View>*/}
-          {/*<View*/}
-          {/*  style={{*/}
-          {/*    alignItems: "center",*/}
-          {/*  }}>*/}
-          {/*  <Image*/}
-          {/*    style={{*/}
-          {/*      height: 50,*/}
-          {/*      width: 50,*/}
-          {/*    }}*/}
-          {/*    source={require("../../img/fedex.png")}*/}
-          {/*  >*/}
-          {/*  </Image>*/}
-          {/*  <Text>Package</Text>*/}
-          {/*  <Text>$5.00</Text>*/}
-          {/*  <Text>7 days</Text>*/}
-          {/*</View>*/}
           {this.props.children}
         </View>
-        <Button
-          style={{
-            width: 300,
-          }}
-          title="Order Total: $19.50"
-          color="gray"
-        />
+        {/*<Button*/}
+        {/*  style={{*/}
+        {/*    width: 300,*/}
+        {/*  }}*/}
+        {/*  title="Order Total: $19.50"*/}
+        {/*  color="gray"*/}
+        {/*/>*/}
       </View>
     )
   }
@@ -154,21 +120,25 @@ class ShippingInfo extends Component {
             cost={this.props.usps_parcel_select_package.cost}
             days={this.props.usps_parcel_select_package.days}
           />
-          {/*<ShippingBadge*/}
-          {/*  label={"Package"}*/}
-          {/*  logo={require("../../img/fedex.png")}*/}
-          {/*  cost={5.00}*/}
-          {/*  days={7}*/}
-          {/*/>*/}
+          <ShippingBadge
+            label={"Package"}
+            logo={require("../../img/fedex.png")}
+            cost={5.00}
+            days={7}
+          />
         </ShippingOptionSection>
-        {/*<ShippingOptionSection title="Priority" description="Get it faster, get it within 2-4 days">*/}
-        {/*  <ShippingBadge*/}
-        {/*    label={"Package"}*/}
-        {/*    logo={require("../../img/usps.png")}*/}
-        {/*    cost={this.state.usps_priority_mail_package.cost}*/}
-        {/*    days={this.state.usps_priority_mail_package.days}*/}
-        {/*  />*/}
-        {/*</ShippingOptionSection>*/}
+        <ShippingOptionSection
+          title="Priority"
+          description="Get it faster, get it within 2-4 days"
+          color="#eeeeee"
+        >
+          <ShippingBadge
+            label={"Package"}
+            logo={require("../../img/usps.png")}
+            cost={this.props.usps_priority_mail_package.cost}
+            days={this.props.usps_priority_mail_package.days}
+          />
+        </ShippingOptionSection>
       </ScrollView>
     )
   }
@@ -177,5 +147,6 @@ class ShippingInfo extends Component {
 export default connect((state) => {
   return {
     usps_parcel_select_package: state.shippingOptions.usps_parcel_select_package,
+    usps_priority_mail_package: state.shippingOptions.usps_priority_mail_package,
   }
 }) (ShippingInfo);

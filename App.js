@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {Button, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import store from "./store";
-import ShippingInfo from "./components/shipping/ShippingInfo";
 import ShoppingPanel from "./components/ShoppingPanel";
+import StreamVideo from "./components/StreamVideo";
 
 
 store.subscribe( ()=> {
@@ -24,12 +23,8 @@ class App extends Component {
         <View>
           <View style={{height: 20, backgroundColor: "red"}}>
           </View>
-          {/*<StreamVideo/>*/}
+          <StreamVideo/>
           <ShoppingPanel/>
-
-          {/*<ShippingInfo/>*/}
-
-          {/*<ShippingInfo/>*/}
         </View>
       </Provider>
     );

@@ -1,29 +1,9 @@
 import React, {Component} from 'react';
-import {Button, Dimensions, Image, ScrollView, Text, View} from "react-native";
+import {TouchableHighlight, Button, Dimensions, Image, ScrollView, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {getRates} from "../../actions/shippingActions";
+import {updateTotal} from "../../actions/orderActions";
+import ShippingBadge from "./ShippingBadge";
 
-function ShippingBadge(props) {
-  return (
-    <View
-      style={{
-        alignItems: "center",
-      }}
-    >
-      <Image
-        style={{
-          height: 50,
-          width: 50,
-        }}
-        source={props.logo}
-      >
-      </Image>
-      <Text>{props.label}</Text>
-      <Text>${props.cost}</Text>
-      <Text>{props.days} days</Text>
-    </View>
-  )
-}
 
 class ShippingOptionSection extends Component {
 
@@ -64,13 +44,6 @@ class ShippingOptionSection extends Component {
         >
           {this.props.children}
         </View>
-        {/*<Button*/}
-        {/*  style={{*/}
-        {/*    width: 300,*/}
-        {/*  }}*/}
-        {/*  title="Order Total: $19.50"*/}
-        {/*  color="gray"*/}
-        {/*/>*/}
       </View>
     )
   }
@@ -83,7 +56,6 @@ class ShippingInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: '',
       usps_parcel_select_package: {
         cost: 0,
         days: 0,
@@ -92,7 +64,6 @@ class ShippingInfo extends Component {
         cost: 0,
         days: 0,
       },
-      rates: [],
     };
   }
 

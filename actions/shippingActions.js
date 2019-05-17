@@ -104,6 +104,10 @@ export function openShipping(cost) {
       'total': cost,
     });
     dispatch({
+      'type': 'UPDATE_ORDER_COST',
+      'cost': cost,
+    });
+    dispatch({
       type: 'OPEN_SHIPPING'
     });
   };

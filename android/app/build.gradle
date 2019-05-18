@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':opentok-react-native')
     implementation project(':react-native-webview')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

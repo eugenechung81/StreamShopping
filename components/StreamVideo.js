@@ -9,13 +9,13 @@ export default class extends Component {
   }
 
   componentDidMount() {
-
   }
 
   render() {
     let screenWidth = Dimensions.get('window').width;
     let screenHeight = Dimensions.get('window').height;
     return (
+
       <Image
         style={{
           height: screenHeight,

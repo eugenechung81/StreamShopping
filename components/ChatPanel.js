@@ -39,7 +39,7 @@ export default class extends Component {
     setTimeout(()=> {
       this.setState({
         chats: [...this.state.chats, {
-          username: 'mabel',
+          username: 'maria',
           msg: 'nice!'}
           ]
       });

@@ -1,4 +1,6 @@
 rootProject.name = 'reactNativeAndriod'
+include ':opentok-react-native'
+project(':opentok-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/opentok-react-native/android')
 include ':react-native-webview'
 project(':react-native-webview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview/android')
 

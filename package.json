@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "opentok-react-native": "^0.10.2",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-webview": "^5.8.2",

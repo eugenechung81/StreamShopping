@@ -4,6 +4,7 @@ import {Provider} from 'react-redux'
 import store from "./store";
 import ShoppingPanel from "./components/ShoppingPanel";
 import StreamVideo from "./components/StreamVideo";
+import ChatPanel from "./components/ChatPanel";
 
 
 store.subscribe(() => {
@@ -22,6 +23,7 @@ class App extends Component {
           <View style={{height: 20, backgroundColor: "red"}}>
           </View>
           <StreamVideo/>
+          <ChatPanel/>
           <ShoppingPanel/>
         </View>
       </Provider>

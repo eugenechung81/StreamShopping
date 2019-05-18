@@ -22,7 +22,7 @@ class ShippingOptionSection extends Component {
           // borderColor: "gray",
           // borderWidth: 1,
           width: screenWidth,
-          height: 300,
+          height: 340,
           alignItems: 'center',
         }}
       >
@@ -66,6 +66,10 @@ class ShippingInfo extends Component {
         cost: 0,
         days: 0,
       },
+      fedex_ground: {
+        cost: 0,
+        days: 0,
+      },
     };
   }
 
@@ -97,8 +101,8 @@ class ShippingInfo extends Component {
           <ShippingBadge
             label={"Package"}
             logo={require("../../img/fedex.png")}
-            cost={5.00}
-            days={7}
+            cost={this.props.fedex_ground.cost}
+            days={this.props.fedex_ground.days}
           />
         </ShippingOptionSection>
         <ShippingOptionSection
@@ -112,6 +116,30 @@ class ShippingInfo extends Component {
             cost={this.props.usps_priority_mail_package.cost}
             days={this.props.usps_priority_mail_package.days}
           />
+          <ShippingBadge
+            label={"Package"}
+            logo={require("../../img/fedex.png")}
+            cost={this.props.fedex_2day.cost}
+            days={this.props.fedex_2day.days}
+          />
+        </ShippingOptionSection>
+        <ShippingOptionSection
+          title="Express"
+          description="Fastest, get it within 1-2 days"
+          color="#d4d2d1"
+        >
+          <ShippingBadge
+            label={"Package"}
+            logo={require("../../img/usps.png")}
+            cost={this.props.usps_priority_mail_express_package.cost}
+            days={this.props.usps_priority_mail_express_package.days}
+          />
+          <ShippingBadge
+            label={"Package"}
+            logo={require("../../img/fedex.png")}
+            cost={this.props.fedex_first_overnight.cost}
+            days={this.props.fedex_first_overnight.days}
+          />
         </ShippingOptionSection>
       </ScrollView>
     )
@@ -120,7 +148,16 @@ class ShippingInfo extends Component {
 
 export default connect((state) => {
   return {
+    // ground
     usps_parcel_select_package: state.shippingOptions.usps_parcel_select_package,
+    fedex_ground: state.shippingOptions.fedex_ground,
+
+    // priority
     usps_priority_mail_package: state.shippingOptions.usps_priority_mail_package,
+    fedex_2day: state.shippingOptions.fedex_2day,
+
+    // express
+    usps_priority_mail_express_package: state.shippingOptions.usps_priority_mail_express_package,
+    fedex_first_overnight: state.shippingOptions.fedex_first_overnight,
   }
 }) (ShippingInfo);

@@ -3,7 +3,7 @@ export function getRates(weight) {
     fetch('https://api.shipengine.com/v1/rates', {
       method: 'POST',
       headers: {
-        'api-key': 'ElJkhJuQIRoFq/kDEblco4LpZqRCdYNIoAVG7SywSXw',
+        'api-key': 'TEST_c2H2cg9/Oli+xJjuOEt+WvxViijtLy8wapw0GZo0+G0',
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
@@ -41,8 +41,8 @@ export function getRates(weight) {
         },
         "rate_options": {
           "carrier_ids": [
-            "se-123890"
-          ]
+            "se-133852",
+            "se-133854"]
         }
       })
     })
@@ -59,11 +59,47 @@ export function getRates(weight) {
           days: rate.delivery_days,
         });
         rate = res.rate_response.rates.find((r) => {
+          return r.service_code == "fedex_ground" && r.package_type == null;
+        });
+        dispatch({
+          type: 'UPDATE_SHIPPING_OPTION',
+          key: 'fedex_ground',
+          cost: rate.shipping_amount.amount,
+          days: rate.delivery_days,
+        });
+        rate = res.rate_response.rates.find((r) => {
           return r.service_code == "usps_priority_mail" && r.package_type == "package";
         });
         dispatch({
           type: 'UPDATE_SHIPPING_OPTION',
           key: 'usps_priority_mail_package',
+          cost: rate.shipping_amount.amount,
+          days: rate.delivery_days,
+        });
+        rate = res.rate_response.rates.find((r) => {
+          return r.service_code == "fedex_2day" && r.package_type == null;
+        });
+        dispatch({
+          type: 'UPDATE_SHIPPING_OPTION',
+          key: 'fedex_2day',
+          cost: rate.shipping_amount.amount,
+          days: rate.delivery_days,
+        });
+        rate = res.rate_response.rates.find((r) => {
+          return r.service_code == "usps_priority_mail_express" && r.package_type == "package";
+        });
+        dispatch({
+          type: 'UPDATE_SHIPPING_OPTION',
+          key: 'usps_priority_mail_express_package',
+          cost: rate.shipping_amount.amount,
+          days: rate.delivery_days,
+        });
+        rate = res.rate_response.rates.find((r) => {
+          return r.service_code == "fedex_first_overnight" && r.package_type == null;
+        });
+        dispatch({
+          type: 'UPDATE_SHIPPING_OPTION',
+          key: 'fedex_first_overnight',
           cost: rate.shipping_amount.amount,
           days: rate.delivery_days,
         });
@@ -74,28 +110,17 @@ export function getRates(weight) {
   }
 }
 
-export function resetShipping() {
-  return function (dispatch) {
-    dispatch({
-      type: 'UPDATE_SHIPPING_OPTION',
-      key: 'usps_parcel_select_package',
-      cost: 0,
-      days: 0,
-    });
-    dispatch({
-      type: 'UPDATE_SHIPPING_OPTION',
-      key: 'usps_priority_mail_package',
-      cost: 0,
-      days: 0,
-    });
-  }
-}
-
 export function closeShipping() {
   return function (dispatch) {
     dispatch({
       type: 'UPDATE_SHIPPING_OPTION',
       key: 'usps_parcel_select_package',
+      cost: 0,
+      days: 0,
+    });
+    dispatch({
+      type: 'UPDATE_SHIPPING_OPTION',
+      key: 'fedex_ground',
       cost: 0,
       days: 0,
     });

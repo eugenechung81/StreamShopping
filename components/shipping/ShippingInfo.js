@@ -29,10 +29,12 @@ class ShippingOptionSection extends Component {
         <Text
           style={{
             marginTop: 20,
-            fontSize: 18,
+            fontSize: 24,
           }}
         >{this.props.title}</Text>
-        <Text>{this.props.description}</Text>
+        <Text style={{
+          fontSize: 18
+        }}>{this.props.description}</Text>
         <View
           style={{
             marginTop: 60,

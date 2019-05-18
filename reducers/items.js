@@ -27,5 +27,14 @@ export const items = (state = [{
   'weight': 24,
   'status': 'order',
 }], action) => {
-  return state;
+   switch (action.type) {
+     case 'UPDATE_ITEM':
+       return state.map(item =>
+         (item.id === action.id)
+           ? {...item, status: action.status}
+           : item
+       );
+     default:
+       return state
+   }
 };

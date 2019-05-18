@@ -40,6 +40,7 @@ class ShoppingPanel extends Component {
             return (
               <ShoppingItem
                 key={i.id}
+                id={i.id}
                 imgPath={i.imgPath}
                 description={i.description}
                 cost={i.cost}

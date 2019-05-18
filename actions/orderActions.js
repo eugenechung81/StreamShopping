@@ -6,3 +6,10 @@ export function updateTotal(total) {
   }
 }
 
+export function executeOrder(id) {
+  return {
+    type: 'UPDATE_ITEM',
+    id: id,
+    status: 'ordered',
+  }
+}

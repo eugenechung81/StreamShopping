@@ -1,6 +1,9 @@
 export const settings = (state = {
   showShippingModal: false,
   showDeliveryModal: false,
+
+  // current order
+  orderId: null,
   orderCost: 0,
   orderTotal: 0,
 }, action) => {
@@ -13,8 +16,8 @@ export const settings = (state = {
       return {...state, showDeliveryModal: true};
     case 'CLOSE_DELIVERY':
       return {...state, showDeliveryModal: false};
-    case 'UPDATE_ORDER_COST':
-      return {...state, orderCost: action.cost};
+    case 'UPDATE_ORDER_DETAILS':
+      return {...state, orderCost: action.cost, orderId: action.id};
     case 'UPDATE_ORDER_TOTAL':
       return {...state, orderTotal: action.total};
   }

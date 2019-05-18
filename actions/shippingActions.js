@@ -92,20 +92,35 @@ export function resetShipping() {
 }
 
 export function closeShipping() {
-  return {
-    type: 'CLOSE_SHIPPING'
-  }
+  return function (dispatch) {
+    dispatch({
+      type: 'UPDATE_SHIPPING_OPTION',
+      key: 'usps_parcel_select_package',
+      cost: 0,
+      days: 0,
+    });
+    dispatch({
+      type: 'UPDATE_SHIPPING_OPTION',
+      key: 'usps_priority_mail_package',
+      cost: 0,
+      days: 0,
+    });
+    dispatch({
+      type: 'CLOSE_SHIPPING'
+    })
+  };
 }
 
-export function openShipping(cost) {
+export function openShipping(id, cost) {
   return function (dispatch) {
     dispatch({
       'type': 'UPDATE_ORDER_TOTAL',
       'total': cost,
     });
     dispatch({
-      'type': 'UPDATE_ORDER_COST',
+      'type': 'UPDATE_ORDER_DETAILS',
       'cost': cost,
+      'id': id,
     });
     dispatch({
       type: 'OPEN_SHIPPING'

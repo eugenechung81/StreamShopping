@@ -6,7 +6,7 @@ import ShoppingPanel from "./components/ShoppingPanel";
 import StreamVideo from "./components/StreamVideo";
 
 
-store.subscribe( ()=> {
+store.subscribe(() => {
   console.log("store changed", store.getState());
 });
 
@@ -16,8 +16,6 @@ class App extends Component {
   }
 
   render() {
-
-
     return (
       <Provider store={store}>
         <View>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Modal, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import {connect} from "react-redux";
 import {closeShipping} from "../../actions/shippingActions";
+import {executeOrder} from "../../actions/orderActions";
 
 class OrderInfo extends Component {
   render() {
@@ -17,6 +18,7 @@ class OrderInfo extends Component {
         <View>
           <Button
             onPress={() => {
+              this.props.dispatch(executeOrder(this.props.orderId));
               this.props.dispatch(closeShipping());
             }}
             style={{
@@ -45,6 +47,7 @@ class OrderInfo extends Component {
 
 export default connect((state) => {
   return {
+    orderId: state.settings.orderId,
     orderTotal: state.settings.orderTotal,
   }
 })(OrderInfo);

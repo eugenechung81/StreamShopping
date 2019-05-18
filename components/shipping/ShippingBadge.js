@@ -19,15 +19,15 @@ class ShippingBadge extends Component {
           >
             <Image
               style={{
-                height: 50,
-                width: 50,
+                height: 70,
+                width: 70,
               }}
               source={this.props.logo}
             >
             </Image>
-            <Text>{this.props.label}</Text>
-            <Text>${this.props.cost}</Text>
-            <Text>{this.props.days} days</Text>
+            <Text style={{ fontSize: 20 }}>{this.props.label}</Text>
+            <Text style={{ fontSize: 20 }}>${this.props.cost}</Text>
+            <Text style={{ fontSize: 18 }}>{this.props.days} days</Text>
           </View>
         </TouchableHighlight>
       )

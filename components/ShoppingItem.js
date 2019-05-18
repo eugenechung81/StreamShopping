@@ -16,6 +16,59 @@ class ShoppingItem extends Component {
   }
 
   render() {
+
+    let button = <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 20,
+            }}
+          >
+            <Button
+              onPress={() => {
+                this.props.dispatch(getRates(this.props.weight));
+                this.props.dispatch(openShipping(this.props.id, this.props.cost));
+              }}
+              style={{}}
+              title="Order"
+              color="red"
+            />
+          </View>;
+    if( this.props.status == "in_transit" )
+      button = <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 5,
+            }}
+          >
+            <Button
+              onPress={() => {
+                this.props.dispatch(openDelivery());
+              }}
+              style={{}}
+              title="In Transit"
+              color="gray"
+            />
+          </View>;
+    else if (this.props.status == "ordered") {
+      button = <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 10,
+            }}
+          >
+            <Button
+              onPress={() => {
+                this.props.dispatch(openDelivery());
+              }}
+              style={{}}
+              title="Ordered"
+              color="gray"
+            />
+          </View>;
+    }
     return (
       <View
         style={{
@@ -34,39 +87,7 @@ class ShoppingItem extends Component {
           source={this.props.imgPath}
         />
 
-        {this.props.status == "in_transit" ?
-          <View
-            style={{
-              position: "absolute",
-              top: 50,
-              left: 5,
-            }}
-          >
-            <Button
-              onPress={() => {
-                this.props.dispatch(openDelivery());
-              }}
-              style={{}}
-              title="In Transit"
-              color="gray"
-            />
-          </View> : <View
-            style={{
-              position: "absolute",
-              top: 50,
-              left: 20,
-            }}
-          >
-            <Button
-              onPress={() => {
-                this.props.dispatch(getRates(this.props.weight));
-                this.props.dispatch(openShipping(this.props.cost));
-              }}
-              style={{}}
-              title="Order"
-              color="red"
-            />
-          </View>}
+        {button}
 
         <View
           style={{

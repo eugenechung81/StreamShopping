@@ -1,36 +1,37 @@
 import React, {Component} from 'react';
-import {Button, default as Dimensions, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Provider} from 'react-redux'
 import store from "./store";
-import ShoppingPanel from "./components/ShoppingPanel";
-import StreamVideo from "./components/StreamVideo";
-import ChatPanel from "./components/ChatPanel";
-import {OTPublisher, OTSession, OTSubscriber} from "opentok-react-native";
-import StreamOpenTok from "./components/StreamOpenTok";
-
+import {createAppContainer, createStackNavigator, StackActions, NavigationActions} from 'react-navigation';
+import HomeScreen from "./screens/HomeScreen";
+import StreamScreen from "./screens/StreamScreen";
 
 store.subscribe(() => {
   console.log("store changed", store.getState());
 });
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Details: {
+    screen: StreamScreen,
+  },
+}, {
+  initialRouteName: 'Home',
+  headerMode: 'none',
+});
+
+const NavigationContainer = createAppContainer(AppNavigator);
 
 class App extends Component {
   componentDidMount() {
   }
 
   render() {
-    // console.log(this.token);
-    //var screenWidth = Dimensions.get('window').width;
     return (
       <Provider store={store}>
-        <View>
-          <View style={{height: 20, backgroundColor: "red"}}>
-          </View>
-          {/*<StreamVideo/>*/}
-
-          <StreamOpenTok/>
-          <ChatPanel/>
-          <ShoppingPanel/>
-        </View>
+        {/*<NavigationContainer/>*/}
+        <StreamScreen/>
       </Provider>
     );
   }

@@ -5,7 +5,7 @@ import TopHeader from "../navigation/TopHeader";
 class AddressScreen extends Component {
    state = {
       email: '',
-      password: ''
+      password: '',
    };
 
    handleName = (text) => {
@@ -165,7 +165,5 @@ const styles = StyleSheet.create({
     padding: 2,
     fontSize: 25,
     // fontStyle: "italic"
-
   },
-
 })

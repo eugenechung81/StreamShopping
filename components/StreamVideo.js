@@ -20,8 +20,8 @@ export default class extends Component {
         style={{
           height: screenHeight,
           width: screenWidth,
-          borderColor: "gray",
-          borderWidth: 1,
+          // borderColor: "gray",
+          // borderWidth: 1,
           position: "absolute",
         }}
         source={require('./../img/stream2.jpg')}

@@ -48,7 +48,7 @@ export default class extends Component {
       this.setState({
         chats: [...this.state.chats, {
           username: 'desmond',
-          msg: 'I have five of these pens and they\'re great!'}
+          msg: 'I have five of these markers and they\'re great!'}
           ]
       });
     }, 6000);
@@ -77,7 +77,7 @@ export default class extends Component {
             marginBottom: 15,
           }}
         >
-          <ChatLine username="david" message="Can you tell me more about the pen?"/>
+          <ChatLine username="david" message="Can you tell me more about the marker?"/>
           {/*<ChatLine username="mabel" message="nice!"/>*/}
           {this.state.chats.map((c, index) => {
             return (<ChatLine key={index} username={c.username} message={c.msg}/>)

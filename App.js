@@ -1,40 +1,65 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux'
 import store from "./store";
-import {createAppContainer, createStackNavigator, StackActions, NavigationActions} from 'react-navigation';
-import HomeScreen from "./screens/HomeScreen";
+import {TextInput, Button, default as Dimensions, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+
+import {
+  createAppContainer,
+  createDrawerNavigator
+} from 'react-navigation';
+import TopHeader from "./navigation/TopHeader";
 import StreamScreen from "./screens/StreamScreen";
+import PaymentsScreen from "./screens/PaymentsScreen";
+import AddressScreen from "./screens/AddressScreen";
+//
+// store.subscribe(() => {
+//   console.log("store changed", store.getState());
+// });
 
-store.subscribe(() => {
-  console.log("store changed", store.getState());
-});
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
-  },
-  Details: {
-    screen: StreamScreen,
-  },
-}, {
-  initialRouteName: 'Home',
-  headerMode: 'none',
-});
-
-const NavigationContainer = createAppContainer(AppNavigator);
-
-class App extends Component {
-  componentDidMount() {
-  }
+class SettingsScreen extends  Component {
 
   render() {
     return (
-      <Provider store={store}>
-        {/*<NavigationContainer/>*/}
-        <StreamScreen/>
-      </Provider>
+      <View>
+        <TopHeader
+          navigation={this.props.navigation}
+          title="Details"
+        />
+        <Text>This is Settings Screen</Text>
+      </View>
     );
   }
 }
 
-export default App
+
+const AppNavigator = createDrawerNavigator({
+  Stream: {
+    screen: StreamScreen
+  },
+  Payments: {
+    screen:PaymentsScreen
+  },
+  Address: {
+    screen: AddressScreen
+  }
+}, {
+  headerMode: 'none',
+  defaultNavigationOptions: {
+    headerVisible: false,
+  }
+});
+
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends Component {
+  render() {
+    return(
+      <Provider store={store}>
+        <AppContainer/>
+      </Provider>
+
+    )
+  }
+}

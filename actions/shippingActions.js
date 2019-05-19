@@ -61,12 +61,13 @@ export function getRates(weight) {
         rate = res.rate_response.rates.find((r) => {
           return r.service_code == "fedex_ground" && r.package_type == null;
         });
-        dispatch({
-          type: 'UPDATE_SHIPPING_OPTION',
-          key: 'fedex_ground',
-          cost: rate.shipping_amount.amount,
-          days: rate.delivery_days,
-        });
+        if(rate != null)
+          dispatch({
+            type: 'UPDATE_SHIPPING_OPTION',
+            key: 'fedex_ground',
+            cost: rate.shipping_amount.amount,
+            days: rate.delivery_days,
+          });
         rate = res.rate_response.rates.find((r) => {
           return r.service_code == "usps_priority_mail" && r.package_type == "package";
         });
@@ -79,12 +80,13 @@ export function getRates(weight) {
         rate = res.rate_response.rates.find((r) => {
           return r.service_code == "fedex_2day" && r.package_type == null;
         });
-        dispatch({
-          type: 'UPDATE_SHIPPING_OPTION',
-          key: 'fedex_2day',
-          cost: rate.shipping_amount.amount,
-          days: rate.delivery_days,
-        });
+        if(rate != null)
+          dispatch({
+            type: 'UPDATE_SHIPPING_OPTION',
+            key: 'fedex_2day',
+            cost: rate.shipping_amount.amount,
+            days: rate.delivery_days,
+          });
         rate = res.rate_response.rates.find((r) => {
           return r.service_code == "usps_priority_mail_express" && r.package_type == "package";
         });
@@ -97,12 +99,13 @@ export function getRates(weight) {
         rate = res.rate_response.rates.find((r) => {
           return r.service_code == "fedex_first_overnight" && r.package_type == null;
         });
-        dispatch({
-          type: 'UPDATE_SHIPPING_OPTION',
-          key: 'fedex_first_overnight',
-          cost: rate.shipping_amount.amount,
-          days: rate.delivery_days,
-        });
+        if(rate != null)
+          dispatch({
+            type: 'UPDATE_SHIPPING_OPTION',
+            key: 'fedex_first_overnight',
+            cost: rate.shipping_amount.amount,
+            days: rate.delivery_days,
+          });
       })
       .catch((error) => {
         console.error(error);

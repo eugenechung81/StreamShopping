@@ -21,7 +21,7 @@ class ShoppingPanel extends Component {
     return (
       <View
         style={{
-          top: 25,
+          top: 40,
           height: 495,
           width: 100,
           position: "absolute",

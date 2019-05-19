@@ -10,12 +10,13 @@ class StreamScreen extends Component {
   render() {
     return (
       <View>
-        {/*<View style={{height: 20, backgroundColor: "red"}}>*/}
-        {/*</View>*/}
-        <StreamVideo/>
-         <TopHeader navigation={this.props.navigation} title="Stream" />
-
+        {/*<StreamVideo/>*/}
         <StreamOpenTok/>
+
+        <TopHeader
+          navigation={this.props.navigation}
+          title="Stream"
+        />
         <ChatPanel/>
         <ShoppingPanel/>
       </View>

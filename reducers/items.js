@@ -2,14 +2,14 @@ export const items = (state = [{
   'id': 'item1',
   'cost': 1,
   'description': 'Marker',
-  'imgPath': require('./../img/marker.jpg'),
+  'imgPath': require('./../img/marker1.jpg'),
   'weight': 2,
   'status': 'order',
 }, {
   'id': 'item2',
   'cost': 1,
   'description': 'Marker',
-  'imgPath': require('./../img/marker1.jpg'),
+  'imgPath': require('./../img/marker.jpg'),
   'weight': 2,
   'status': 'in_transit',
 }, {

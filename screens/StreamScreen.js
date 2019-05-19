@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import StreamOpenTok from "../components/StreamOpenTok";
 import ChatPanel from "../components/ChatPanel";
 import ShoppingPanel from "../components/ShoppingPanel";
+import StreamVideo from "../components/StreamVideo";
 
 class StreamScreen extends Component {
   render() {

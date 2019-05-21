@@ -16,5 +16,6 @@ The app provides two user experiences, one as seller and the other shopper. On t
 
 # Links 
 
-* https://devpost.com/software/streamshopper
-* https://youtu.be/ED74Ea9lAXk?t=479
+* Demo: https://youtu.be/vQCE7vXNoOU
+* Presentation: https://youtu.be/ED74Ea9lAXk?t=479
+* Devpost: https://devpost.com/software/streamshopper
